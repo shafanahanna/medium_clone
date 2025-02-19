@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TagModule } from './tag/tag.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Tag } from './tag/tag.entity';
+import { UserModule } from './user/user.module';
 
 
 @Module({
@@ -16,8 +16,11 @@ import { Tag } from './tag/tag.entity';
       password: '12345678',
       database: 'medium',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
+      synchronize: false,
+      
+
     }),
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
